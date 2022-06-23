@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=eeeeeeeeeeeeeeee, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{ font-size: 12px;
+             transition: all 5s;}
+        .on{ font-size: 50px;}
+    </style>
+    <script>
+        document.addEventListener ('DOMContentLoaded', function(){
+            let [timer, timerId] = [0, 0]
+            const h1 = document.querySelector('h1')
+            const checkbox = document.querySelector('input')
+            const span = document.querySelector('span')
+
+            //change이벤트는 포문에서 많이 썼음
+            checkbox.addEventListener('change',(event) => {
+                if(event.currentTarget.checked) {
+                    timerId = setInterval(() => {
+                        timer += 1
+                        h1.textContent = `${timer}초`
+                        span.textContent = `타이머활성화`
+                        span.style.color = 'red'
+                        span.classList.add('on')
+                    },1000)
+                }else{
+                    clearInterval(timerId)
+                    span.textContent = `타이머 비활성화`
+                    span.style.color = 'blue'
+                    span.classList.remove('on')
+                }
+            })
+        })
+    </script>
+</head>
+<body>
+    <input type="checkbox">
+    <span>타이머 비활성화</span>
+    <h1></h1>
+</body>
+</html>

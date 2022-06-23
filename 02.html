@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(){
+            const imgs = document.querySelectorAll('img')
+
+            imgs.forEach((img) => {
+                img.addEventListener('contextmenu',(e) => {
+                    e.preventDefault()
+                })
+            })
+        })
+    </script>
+</head>
+preventDefault는 a태그를 눌러도 이도하지 않게 하는 경우 새로 실행하지 않게 하고싶을 경우 
+<body>
+    <img src="http://placekitten.com/300/300" alt="">
+</body>
+</html>
